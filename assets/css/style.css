@@ -5,6 +5,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
+  background-color: white;
 }
 
 a {
@@ -72,7 +73,7 @@ h6 {
   z-index: 9997;
   transition: all 0.5s;
   padding: 0 15px;
-  background: #040b14;
+  background: rgb(15, 32, 58);
   overflow-y: auto;
 }
 
@@ -80,7 +81,7 @@ h6 {
   margin: 15px auto;
   display: block;
   width: 120px;
-  border: 8px solid #2c2f3f;
+  border: 4px solid rgb(38, 76, 165);
 }
 
 #header .profile h1 {
@@ -100,22 +101,22 @@ h6 {
 }
 
 #header .profile .social-links a {
-  font-size: 18px;
+  font-size: 30px;
   display: inline-block;
-  background: #212431;
+  background: rgb(61, 161, 223);
   color: #fff;
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
   border-radius: 50%;
   text-align: center;
-  width: 36px;
-  height: 36px;
+  width: 49px;
+  height: 49px;
   transition: 0.3s;
 }
 
 #header .profile .social-links a:hover {
-  background: #149ddd;
+  background: rgb(49, 107, 188);
   color: #fff;
   text-decoration: none;
 }
@@ -169,7 +170,7 @@ h6 {
 .nav-menu a:focus {
   display: flex;
   align-items: center;
-  color: #a8a9b4;
+  color: white;
   padding: 12px 15px;
   margin-bottom: 8px;
   transition: 0.3s;
@@ -305,7 +306,7 @@ section {
 }
 
 .section-bg {
-  background: #f5f8fd;
+  background: white;
 }
 
 .section-title {
@@ -318,8 +319,8 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #173b6c;
-}
+  color: black;
+} 
 
 .section-title h2::after {
   content: "";
