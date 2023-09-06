@@ -1,0 +1,21 @@
+// document.addEventListener('DOMContentLoaded', function () {
+//     // Get the position of the stop-scrolling div
+//     const stopScrollingDiv = document.querySelector('.stop-scrolling');
+//     const stopScrollingPosition = stopScrollingDiv.offsetTop;
+
+//     // Add an event listener to prevent scrolling past the stop point
+//     window.addEventListener('scroll', function () {
+//         if (window.pageYOffset >= stopScrollingPosition) {
+//             window.scrollTo(0, stopScrollingPosition);
+//         }
+//     });
+// });
+
+
+// This script is optional and can be used to re-enable scrolling if needed
+document.addEventListener('DOMContentLoaded', function () {
+    // To re-enable scrolling, you can remove the "overflow" property
+    // or set it back to its default value "auto".
+    // Example:
+    // document.body.style.overflow = 'auto';
+});

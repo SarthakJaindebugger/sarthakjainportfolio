@@ -1015,6 +1015,32 @@ section {
   }
 }
 
+
+.my-div {
+    color: white;
+    background-color: black;
+    padding: 10px;  
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    /* Optional: Add scrollbars if content overflows */
+    overflow-y: auto;
+}
+
+
+.stop-scrolling {
+  width: 100%;
+  height: 1px; /* A small invisible div to mark the stop point */
+}
+
+
+.centered-text {
+  text-align: center;
+}
+
+
+
+
 /*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
@@ -1095,3 +1121,4 @@ section {
     padding-right: 20px 15px;
   }
 }
+
