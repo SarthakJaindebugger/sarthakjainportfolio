@@ -12,7 +12,7 @@
               }
           
           .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
           }
@@ -202,9 +202,9 @@
       
           .recommendation-image {
             max-width: 100%;
-            max-height: 150px;
-            margin-bottom: 10px;
-            border-radius: 50%;
+            max-height: 800px;
+            margin-bottom: 1%;
+            border-radius: 1%;
           }
       
           .recommendation-name {
@@ -236,9 +236,9 @@
           }
       
           .about-me-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            border-radius: 1%;
             margin-right: 20px;
           }
       
@@ -317,6 +317,24 @@
             margin-bottom: 10px;
             text-align: left; /* Align text to the left */
           }
+
+
+          .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            background-color:red; /* Blue color */
+            color: #fff; /* White text */
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+
+        /* Style the icon */
+        .download-icon {
+            margin-right:auto;
+        }
           
 
         </style>
@@ -327,13 +345,18 @@
 
   <header>
     <div class="container">
-      <h1>SARTHAK JAIN</h1>
+      <h1 style="font-size: 60px;">SARTHAK JAIN</h1>
       <p class="contact-info">
-        <i class="fa fa-phone"></i> +91-9310136343 &nbsp; | &nbsp;
+        <i class="fa fa-phone"></i> +919310136343 &nbsp; | &nbsp;
         <a href="mailto:sarthakjainssjj@gmail.com"><i class="fa fa-envelope"></i> sarthakjainssjj@gmail.com</a> &nbsp; | &nbsp;
-        <a href="https://www.linkedin.com/in/creatersarthakjain/"><i class="fa fa-linkedin"></i> -creatersarthakjain</a> &nbsp; | &nbsp;
+        <a href="https://www.linkedin.com/in/creatersarthakjain/"><i class="fa fa-linkedin"></i> creatersarthakjain</a> &nbsp; | &nbsp;
         <a href="https://github.com/SarthakJaindebugger"><i class="fa fa-github"></i> SarthakJaindebugger</a> &nbsp; | &nbsp;
-        <a href="https://sarthakjaindebugger.github.io/sarthakjainportfolio/"><i class="fa fa-globe"></i> Portfolio</a>
+        <!-- <a href="assets/img/CV_SarthakJain.pdf" download="CV_SarthakJain.pdf" target="_blank"><i class="fa fa-globe"></i>CV DOWNLOAD</a>
+        
+        -->
+
+        <a href="assets/img/CV_SarthakJain.pdf" download="CV_SarthakJain.pdf" class="download-button" target="_blank">
+          CV DOWNLOAD</a>
       </p>
     </div>
 
@@ -357,7 +380,7 @@
     <div class="section-divider"></div>
 
     <div class="about-me-content">
-      <img src="assets/your_photo.jpg" alt="Your Photo" class="about-me-photo">
+      <img src="assets/img/1696699500912.jpeg" alt="Your Photo" class="about-me-photo">
       <div class="about-me-info">
         <!-- Replace the placeholder text with your actual information -->
         <p>
@@ -397,28 +420,28 @@
 
  <!-- END OF SECTION.......................................................... -->
 
-<div class="section-heading">Projects</div>
+<div class="section-heading">Featured Projects</div>
 <div class="section-divider"></div>
 <section id="projects" class="container">
 
     <div class="project-card" onclick="showDescription('project1')">
-      <img src="assets/project1.jpg" alt="Project 1">
+      <img src="assets/img/logo1.jpeg" alt="Project 1">
     </div>
 
     <div class="project-card" onclick="showDescription('project2')">
-      <img src="assets/project2.jpg" alt="Project 2">
+      <img src="assets/img/1696699500912.webp" alt="Project 2">
     </div>
 
     <div class="project-card" onclick="showDescription('project3')">
-      <img src="assets/project3.jpg" alt="Project 3">
+      <img src="assets/img/internet.jpeg" alt="Project 3">
     </div>
 
     <div class="project-card" onclick="showDescription('project4')">
-      <img src="assets/project4.jpg" alt="Project 4">
+      <img src="assets/img/complaint-great-design-any-purposes-flat-vector-illustration-246932518.webp" alt="Project 4">
     </div>
 
     <div class="project-card" onclick="showDescription('project5')">
-      <img src="assets/project5.jpg" alt="Project 5">
+      <img src="assets/img/istockphoto-1326769162-612x612.jpeg" alt="Project 5">
     </div>
 
   </section>
@@ -444,7 +467,7 @@
             <div class="experience-subtitle">New Delhi, India</div>
             <div class="experience-duration">Research Assistant | Nov 2023 (Present)</div>
             <div class="experience-description">
-                Working on emotion classification using speech datasets in different languages, utilizing continual learning and various other Deep Learning approaches to prevent Catastrophic forgetting.
+              Currently engrossed in emotion classification using diverse speech datasets across multiple languages. Implementing a Fine Tuning approach and harnessing various neural networks for speech recognition. This strategic approach is designed to alleviate Catastrophic Forgetting.
             </div>
         </div>
     
@@ -453,7 +476,7 @@
             <div class="experience-subtitle">Ropar, Punjab, India</div>
             <div class="experience-duration">Research Assistant | Sep 2023 - Nov 2023</div>
             <div class="experience-description">
-                Worked on BLE-based Power Efficient Design using accelerometer sensor for Cow Health Monitoring System.
+              Engineered BLE Cow Health Monitoring with MATLAB, Python for stats, and data transmission via gateway/GSM. Differentiated ML predictions from mathematical analysis.
             </div>
         </div>
     
@@ -462,7 +485,7 @@
             <div class="experience-subtitle">Ropar, Punjab, India</div>
             <div class="experience-duration">Software Development Intern | June 2023 (Present)</div>
             <div class="experience-description">
-                Working on applying various algorithms and ML models to make accurate activity predictions and in the front end development of the Android APP, website for an end user interface.
+              Enhancing ML activity predictions in Flutter and React.JS for Android, web, and website development. Streamlining CI/CD on GitHub, integrating features, and fetching data from AWS DynamoDB via APIs.
             </div>
         </div>
     
@@ -471,7 +494,7 @@
             <div class="experience-subtitle">Bangalore (Remote)</div>
             <div class="experience-duration">Software Development Intern | June 2023 - Aug 2023</div>
             <div class="experience-description">
-                Worked on website development using full stack web development.
+              Contributed to full-stack web development with React.js, Node.js, and MySQL. Integrated APIs, established a robust CI/CD pipeline on GitHub, and coordinated project management with JIRA for efficient workflow.
             </div>
         </div>
     
@@ -508,10 +531,10 @@
     <div class="section-heading">Technical Skills</div>
     <div class="section-divider"></div>
     <ul class="skills-list">
-      <li><strong>Programming Languages:</strong> C/C++, Python, Java, Dart</li>
+      <li><strong>Programming Languages:</strong>C/C++, Python, Java, Dart, Matlab</li>
       <li><strong>Web Technologies:</strong> HTML, CSS, Bootstrap, NodeJS, React, Flutter, Wordpress</li>
       <li><strong>Databases and Cloud:</strong> MySQL, AWS</li>
-      <li><strong>Machine Learning and Deep Learning:</strong> OpenCV, TensorFlow, OCR, NLP(Natural Language Processing), PyTorch</li>
+      <li><strong>Machine Learning and Deep Learning:</strong> OpenCV, TensorFlow, OCR, NLP(Natural Language Processing), PyTorch,Keras</li>
       <li><strong>Version Control and Collaboration:</strong> Github, Git</li>
       <li><strong>Hardware and microcontrollers:</strong> Arduino, Raspberry Pi</li>
     </ul>
@@ -531,24 +554,24 @@
     
     <a href="https://drive.google.com/file/d/193Pi_BwY6RTejBxQ_Id28g1C2XeKkMJs/view?usp=sharing" target="_blank" class="recommendation-card">
       <div class="recommendation-content">
-        <img src="assets/dr_suman_kumar.jpg" alt="Dr. Suman Kumar" class="recommendation-image">
+        <img src="assets/img/sumankumar1.jpg" alt="Dr. Suman Kumar" class="recommendation-image">
         <div class="recommendation-name">Dr. Suman Kumar</div>
       </div>
     </a>
 
 
-    <a href="https://drive.google.com/file/d/193Pi_BwY6RTejBxQ_Id28g1C2XeKkMJs/view?usp=sharing" target="_blank" class="recommendation-card">
+    <a href="https://drive.google.com/file/d/1S2uEkdMHf4ri7AFRJyZdZXgiaMxkh5x7/view?usp=sharing" target="_blank" class="recommendation-card">
         <div class="recommendation-content">
-          <img src="assets/dr_suman_kumar.jpg" alt="Dr. Suman Kumar" class="recommendation-image">
-          <div class="recommendation-name">Dr. Suman Kumar</div>
+          <img src="assets/img/ismail.ecaaef75.png" alt="Dr. Suman Kumar" class="recommendation-image">
+          <div class="recommendation-name">Mr.Ismail Khan</div>
         </div>
       </a>
 
 
-      <a href="https://drive.google.com/file/d/193Pi_BwY6RTejBxQ_Id28g1C2XeKkMJs/view?usp=sharing" target="_blank" class="recommendation-card">
+      <a href="https://drive.google.com/file/d/1vfMi77BB5-h0s6XjMLVmrjT4KD0Jsj_2/view?usp=sharing" target="_blank" class="recommendation-card">
         <div class="recommendation-content">
-          <img src="assets/dr_suman_kumar.jpg" alt="Dr. Suman Kumar" class="recommendation-image">
-          <div class="recommendation-name">Dr. Suman Kumar</div>
+          <img src="assets/img/1694939384473.jpeg" alt="Dr. Suman Kumar" class="recommendation-image">
+          <div class="recommendation-name">Dr.Mohammad Aslam</div>
         </div>
       </a>
 

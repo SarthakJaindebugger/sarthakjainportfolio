@@ -1,9 +1,626 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Open PDF in Web Page</title>
-</head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sarthak Jain's Portfolio</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                 /* Adjust the padding-top based on your navigation bar height */
+              }
+          
+          .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+          }
+      
+          header {
+            background-color: lightblue;
+            padding: 10px 0;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            opacity: 0.85;
+          }
+          
+          /* Add a media query for smaller screens */
+          @media only screen and (max-width: 600px) {
+            header {
+              padding: 10px;
+            }
+          }
+      
+          header h1 {
+            margin: 0;
+            font-size: 2em;
+          }
+      
+          .contact-info {
+            font-size: 0.8em;
+          }
+      
+          #about {
+            display: flex;
+            margin-bottom: 20px;
+          }
+      
+          #about img {
+            width: 200px; /* Adjust as needed */
+            height: 200px; /* Adjust as needed */
+            border-radius: 50%;
+            margin-right: 20px;
+          }
+      
+          #about-description {
+            flex: 1;
+          }
+      
+          #projects {
+            overflow-x: auto;
+            overflow-y: scroll;
+            white-space: nowrap;
+            margin-bottom: 20px;
+            max-height: calc(100vh - 20px);
+          }
+      
+          .project-card {
+            width: 250px;
+            height: 250px;
+            margin-right: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            vertical-align: top;
+            overflow: hidden;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Add transition for smooth color change */
+          }
+          
+          .project-card:hover {
+            background-color:#f0f0f0; /* Change to the desired hover background color */
+          }
+      
+          .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+      
+          .project-description {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+          }
+      
+          .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            cursor: pointer;
+          }
+      
+          footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+          }
+
+          #experience {
+            margin-top: 20px;
+          }
+          
+          .experience-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          }
+          
+          .experience-title {
+            font-size: 1.2em;
+            font-weight: bold;
+          }
+          
+          .experience-subtitle {
+            font-style: italic;
+            color: #555;
+          }
+          
+          .experience-duration {
+            margin-top: 5px;
+            color: #888;
+          }
+          
+          .experience-description {
+            margin-top: 10px;
+            max-height: 100px; /* Adjust the maximum height as needed */
+            overflow: hidden;
+          }
+
+          .section-heading {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center; /* Center align the headings */
+          }
+          
+          .section-divider {
+            margin: 0 auto;
+            margin-top: 5px; /* Adjust the margin as needed */
+            width: 80%; /* Set a specific width for the horizontal line */
+            border-top: 2px solid #ddd;
+          }
+
+          #recommendedBy {
+            margin-top: 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+          }
+      
+          .recommendation-card {
+            width: 250px;
+            height: 300px;
+            margin-right: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            vertical-align: top;
+            overflow: hidden;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+      
+          .recommendation-card:hover {
+            background-color: #f0f0f0;
+          }
+      
+          .recommendation-content {
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            height: 100%;
+          }
+      
+          .recommendation-image {
+            max-width: 100%;
+            max-height: 800px;
+            margin-bottom: 1%;
+            border-radius: 1%;
+          }
+      
+          .recommendation-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+          }
+      
+          .recommendation-link {
+            margin-top: 5px;
+            color: #3498db;
+            text-decoration: none;
+          }
+
+
+          #aboutMe {
+            text-align: center;
+            padding: 50px 0;
+          }
+      
+          .about-me-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+      
+          .about-me-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 1%;
+            margin-right: 20px;
+          }
+      
+          .about-me-info {
+            max-width: 450px;
+            text-align: left;
+          }
+
+
+
+          #header {
+            display: flex;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #333;
+            color: #fff;
+          }
+          
+          #navigation {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center; /* Center-align the navigation items */
+            flex-wrap: wrap; /* Allow items to wrap to a new line */
+          }
+          
+          #navigation li {
+            margin-right: 20px;
+          }
+          
+          #navigation a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            transition: color 0.3s ease;
+          }
+          
+          #navigation a:hover {
+            color: #3498db;
+          }
+            
+
+
+          .scroll-indicator {
+            text-align: center;
+            margin-top: 20px;
+          }
+        
+          .arrow-right {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 15px solid #333;
+            display: inline-block;
+            margin-left: 5px;
+            vertical-align: middle;
+          }
+
+
+
+          #technicalSkills {
+            margin-top: 40px;
+            margin-left: 320px; /* Add left margin */
+            margin-right: 320px; /* Add right margin */
+          }
+          
+          .skills-list {
+            list-style-type: none;
+            padding: 0;
+          }
+          
+          .skills-list li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            text-align: left; /* Align text to the left */
+          }
+
+
+          .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            background-color:red; /* Blue color */
+            color: #fff; /* White text */
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+
+        /* Style the icon */
+        .download-icon {
+            margin-right:auto;
+        }
+          
+
+        </style>
+      </head>
+
+
 <body>
-    <iframe src="assets/img/resume.pdf" width="100%" height="1100px"></iframe>
+
+  <header>
+    <div class="container">
+      <h1 style="font-size: 60px;">SARTHAK JAIN</h1>
+      <p class="contact-info">
+        <i class="fa fa-phone"></i> +919310136343 &nbsp; | &nbsp;
+        <a href="mailto:sarthakjainssjj@gmail.com"><i class="fa fa-envelope"></i> sarthakjainssjj@gmail.com</a> &nbsp; | &nbsp;
+        <a href="https://www.linkedin.com/in/creatersarthakjain/"><i class="fa fa-linkedin"></i> creatersarthakjain</a> &nbsp; | &nbsp;
+        <a href="https://github.com/SarthakJaindebugger"><i class="fa fa-github"></i> SarthakJaindebugger</a> &nbsp; | &nbsp;
+        <!-- <a href="assets/img/CV_SarthakJain.pdf" download="CV_SarthakJain.pdf" target="_blank"><i class="fa fa-globe"></i>CV DOWNLOAD</a>
+        
+        -->
+
+        <a href="assets/img/CV_SarthakJain.pdf" download="CV_SarthakJain.pdf" class="download-button" target="_blank">
+          CV DOWNLOAD</a>
+      </p>
+    </div>
+
+    <ul id="navigation">
+        <li><a href="#aboutMe">About</a></li>
+        <li><a href="#aboutMe">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#recommendedBy">Recommendations</a></li>
+        <!-- Add more navigation items as needed -->
+      </ul>
+
+
+
+  </header>
+
+  
+
+  <div id="aboutMe" class="container">
+    <div class="section-heading">About Me</div>
+    <div class="section-divider"></div>
+
+    <div class="about-me-content">
+      <img src="assets/img/1696699500912.jpeg" alt="Your Photo" class="about-me-photo">
+      <div class="about-me-info">
+        <!-- Replace the placeholder text with your actual information -->
+        <p>
+          Hello! I'm Sarthak Jain, a passionate software developer currently pursuing my BTech in Computer Science Engineering.
+        </p>
+        <p>
+          I love exploring new technologies and building innovative solutions. My journey includes diverse experiences in software development, machine learning, and more.
+        </p>
+        <!-- Add more information about yourself as needed -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div id="aboutMe" class="container">
+    <div class="section-heading">Reserach Interests</div>
+    <div class="section-divider"></div>
+
+    
+      <div class="about-me-info">
+        <!-- Replace the placeholder text with your actual information -->
+        <p>
+          Hello! I'm Sarthak Jain, a passionate software developer currently pursuing my BTech in Computer Science Engineering.
+        </p>
+        <p>
+          I love exploring new technologies and building innovative solutions. My journey includes diverse experiences in software development, machine learning, and more.
+        </p>
+        <!-- Add more information about yourself as needed -->
+      </div>
+    
+  </div>
+
+
+
+
+ <!-- END OF SECTION.......................................................... -->
+
+<div class="section-heading">Featured Projects</div>
+<div class="section-divider"></div>
+<section id="projects" class="container">
+
+    <div class="project-card" onclick="showDescription('project1')">
+      <img src="assets/img/logo1.jpeg" alt="Project 1">
+    </div>
+
+    <div class="project-card" onclick="showDescription('project2')">
+      <img src="assets/img/1696699500912.webp" alt="Project 2">
+    </div>
+
+    <div class="project-card" onclick="showDescription('project3')">
+      <img src="assets/img/internet.jpeg" alt="Project 3">
+    </div>
+
+    <div class="project-card" onclick="showDescription('project4')">
+      <img src="assets/img/complaint-great-design-any-purposes-flat-vector-illustration-246932518.webp" alt="Project 4">
+    </div>
+
+    <div class="project-card" onclick="showDescription('project5')">
+      <img src="assets/img/istockphoto-1326769162-612x612.jpeg" alt="Project 5">
+    </div>
+
+  </section>
+
+  <div class="scroll-indicator">
+    <span>Scroll to view more projects</span>
+    <div class="arrow-right"></div>
+  </div>
+
+
+ <!-- END OF SECTION.......................................................... -->
+
+
+
+<div class="section-heading">Experience</div>
+<div class="section-divider"></div>    
+<section id="experience" class="container">
+        <div class="experience-line"></div>
+    
+        <!-- Experience entries -->
+        <div class="experience-card left">
+            <div class="experience-title">Indraprastha Institute of Information Technology, Delhi</div>
+            <div class="experience-subtitle">New Delhi, India</div>
+            <div class="experience-duration">Research Assistant | Nov 2023 (Present)</div>
+            <div class="experience-description">
+              Currently engrossed in emotion classification using diverse speech datasets across multiple languages. Implementing a Fine Tuning approach and harnessing various neural networks for speech recognition. This strategic approach is designed to alleviate Catastrophic Forgetting.
+            </div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">Indian Institute of Technology, Ropar</div>
+            <div class="experience-subtitle">Ropar, Punjab, India</div>
+            <div class="experience-duration">Research Assistant | Sep 2023 - Nov 2023</div>
+            <div class="experience-description">
+              Engineered BLE Cow Health Monitoring with MATLAB, Python for stats, and data transmission via gateway/GSM. Differentiated ML predictions from mathematical analysis.
+            </div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">Indian Institute of Technology, Ropar(iHub-AWaDH)</div>
+            <div class="experience-subtitle">Ropar, Punjab, India</div>
+            <div class="experience-duration">Software Development Intern | June 2023 (Present)</div>
+            <div class="experience-description">
+              Enhancing ML activity predictions in Flutter and React.JS for Android, web, and website development. Streamlining CI/CD on GitHub, integrating features, and fetching data from AWS DynamoDB via APIs.
+            </div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">Hello World Technologies</div>
+            <div class="experience-subtitle">Bangalore (Remote)</div>
+            <div class="experience-duration">Software Development Intern | June 2023 - Aug 2023</div>
+            <div class="experience-description">
+              Contributed to full-stack web development with React.js, Node.js, and MySQL. Integrated APIs, established a robust CI/CD pipeline on GitHub, and coordinated project management with JIRA for efficient workflow.
+            </div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">Saint Louis University, USA</div>
+            <div class="experience-subtitle">USA (Remote)</div>
+            <div class="experience-duration">Data Visualization Intern | May 2023 - June 2023</div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">Saint Louis University, USA</div>
+            <div class="experience-subtitle">USA (Remote)</div>
+            <div class="experience-duration">Project Management Intern | May 2023 - June 2023</div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">NbliK</div>
+            <div class="experience-subtitle">New Delhi (Remote)</div>
+            <div class="experience-duration">Community Manager Intern | Sept 2022 - Dec 2022</div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">Hamari Pahachan NGO (HPNGO)</div>
+            <div class="experience-subtitle">New Delhi (Remote)</div>
+            <div class="experience-duration">Digital Marketing Intern | Nov 2022 - Dec 2022</div>
+        </div>
+    
+</section>
+<!-- END OF SECTION.......................................................... -->
+
+
+
+<section id="technicalSkills">
+    <div class="section-heading">Technical Skills</div>
+    <div class="section-divider"></div>
+    <ul class="skills-list">
+      <li><strong>Programming Languages:</strong>C/C++, Python, Java, Dart, Matlab</li>
+      <li><strong>Web Technologies:</strong> HTML, CSS, Bootstrap, NodeJS, React, Flutter, Wordpress</li>
+      <li><strong>Databases and Cloud:</strong> MySQL, AWS</li>
+      <li><strong>Machine Learning and Deep Learning:</strong> OpenCV, TensorFlow, OCR, NLP(Natural Language Processing), PyTorch,Keras</li>
+      <li><strong>Version Control and Collaboration:</strong> Github, Git</li>
+      <li><strong>Hardware and microcontrollers:</strong> Arduino, Raspberry Pi</li>
+    </ul>
+  </section>
+
+
+
+
+
+
+
+<!-- END OF SECTION.......................................................... -->
+<div class="section-heading">Recommended By</div>
+  <div class="section-divider"></div>
+
+  <section id="recommendedBy" class="container">
+    
+    <a href="https://drive.google.com/file/d/193Pi_BwY6RTejBxQ_Id28g1C2XeKkMJs/view?usp=sharing" target="_blank" class="recommendation-card">
+      <div class="recommendation-content">
+        <img src="assets/img/sumankumar1.jpg" alt="Dr. Suman Kumar" class="recommendation-image">
+        <div class="recommendation-name">Dr. Suman Kumar</div>
+      </div>
+    </a>
+
+
+    <a href="https://drive.google.com/file/d/1S2uEkdMHf4ri7AFRJyZdZXgiaMxkh5x7/view?usp=sharing" target="_blank" class="recommendation-card">
+        <div class="recommendation-content">
+          <img src="assets/img/ismail.ecaaef75.png" alt="Dr. Suman Kumar" class="recommendation-image">
+          <div class="recommendation-name">Mr.Ismail Khan</div>
+        </div>
+      </a>
+
+
+      <a href="https://drive.google.com/file/d/1vfMi77BB5-h0s6XjMLVmrjT4KD0Jsj_2/view?usp=sharing" target="_blank" class="recommendation-card">
+        <div class="recommendation-content">
+          <img src="assets/img/1694939384473.jpeg" alt="Dr. Suman Kumar" class="recommendation-image">
+          <div class="recommendation-name">Dr.Mohammad Aslam</div>
+        </div>
+      </a>
+
+    
+  </section>
+
+<!-- END OF SECTION.......................................................... -->
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="projectDescription" class="project-description">
+    <span class="close-btn" onclick="hideDescription()">&times;</span>
+    <div id="projectDescriptionContent"></div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Sarthak Jain. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function showDescription(project) {
+      const projectDescription = document.getElementById('projectDescription');
+      const projectDescriptionContent = document.getElementById('projectDescriptionContent');
+
+      // Load project description dynamically
+      fetch(`assets/${project}.html`)
+        .then(response => response.text())
+        .then(data => {
+          projectDescriptionContent.innerHTML = data;
+          projectDescription.style.display = 'block';
+        });
+    }
+
+    function hideDescription() {
+      const projectDescription = document.getElementById('projectDescription');
+      projectDescription.style.display = 'none';
+    }
+  </script>
+
 </body>
 </html>
