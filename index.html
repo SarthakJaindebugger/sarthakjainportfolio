@@ -1,546 +1,807 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sarthak Jain's Portfolio</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                 /* Adjust the padding-top based on your navigation bar height */
+              }
+          
+              .container {
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 20px;
+              }
+          
+              .container h1 {
+                font-size: 24px;
+                font-weight: bold;
+              }
+          
+              .special-heading {
+                font-size: 64px;
+                font-weight: bold;
+                color: black;
+              }
+          
+              .container p.contact-info {
+                font-size: 18px;
+                font-weight: bold;
+              }
+          
+              /* Style hyperlinks */
+              .container a {
+                text-decoration: none; /* Remove underline */
+                color:black; /* Set default color to yellow */
+                transition: color 0.3s ease; /* Add smooth transition on color change */
+              }
+          
+              /* Change hyperlink color on hover */
+              .container a:hover {
+                color:cornflowerblue; /* Change color on hover (e.g., orange) */
+              }
+      
+          header {
+            background-color: lightblue;
+            padding: 10px 0;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            opacity: 0.85;
+          }
+          
+          /* Add a media query for smaller screens */
+          @media only screen and (max-width: 600px) {
+            header {
+              padding: 10px;
+            }
+          }
+      
+          header h1 {
+            margin: 0;
+            font-size: 2em;
+          }
+      
+          .contact-info {
+            font-size: 0.8em;
+          }
+      
+          #about {
+            display: flex;
+            margin-bottom: 20px;
+          }
+      
+          #about img {
+            width: 200px; /* Adjust as needed */
+            height: 200px; /* Adjust as needed */
+            border-radius: 50%;
+            margin-right: 20px;
+          }
+      
+          #about-description {
+            flex: 1;
+          }
+      
+          #projects {
+            overflow-x: auto;
+            overflow-y: scroll;
+            white-space: nowrap;
+            margin-bottom: 20px;
+            max-height: calc(100vh - 20px);
+          }
+      
+          .project-card {
+            width: 250px;
+            height: 250px;
+            margin-right: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            vertical-align: top;
+            overflow: hidden;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Add transition for smooth color change */
+          }
+          
+          .project-card:hover {
+            background-color:#f0f0f0; /* Change to the desired hover background color */
+          }
+      
+          .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+      
+          .project-description {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+          }
+      
+          .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            cursor: pointer;
+          }
+      
+          footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+          }
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+          #experience {
+            margin-top: 20px;
+          }
+          
+          .experience-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          }
+          
+          .experience-title {
+            font-size: 1.2em;
+            font-weight: bold;
+          }
+          
+          .experience-subtitle {
+            font-style: italic;
+            color: #555;
+          }
+          
+          .experience-duration {
+            margin-top: 5px;
+            color: #888;
+          }
+          
+          .experience-description {
+            margin-top: 10px;
+            max-height: 100px; /* Adjust the maximum height as needed */
+            overflow: hidden;
+          }
 
-  <title>SARTHAK JAIN PORTFOLIO</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+          .section-heading {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center; /* Center align the headings */
+          }
+          
+          .section-divider {
+            margin: 0 auto;
+            margin-top: 5px; /* Adjust the margin as needed */
+            width: 80%; /* Set a specific width for the horizontal line */
+            border-top: 2px solid #ddd;
+          }
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+          #recommendedBy {
+            margin-top: 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+          }
+      
+          .recommendation-card {
+            width: 250px;
+            height: 300px;
+            margin-right: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            vertical-align: top;
+            overflow: hidden;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+      
+          .recommendation-card:hover {
+            background-color: #f0f0f0;
+          }
+      
+          .recommendation-content {
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            height: 100%;
+          }
+      
+          .recommendation-image {
+            max-width: 100%;
+            max-height: 800px;
+            margin-bottom: 1%;
+            border-radius: 1%;
+          }
+      
+          .recommendation-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+          }
+      
+          .recommendation-link {
+            margin-top: 5px;
+            color: #3498db;
+            text-decoration: none;
+          }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+          #aboutMe {
+            text-align: center;
+            padding: 50px 0;
+          }
+      
+          .about-me-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+      
+          .about-me-photo {
+            width: 400px;
+            height: 400px;
+            border-radius: 1%;
+            margin-right: 20px;
+          }
+      
+          .about-me-info {
+            max-width: 450px;
+            text-align: left;
+          }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
 
-  
-</head>
+
+          #header {
+            display: flex;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #333;
+            color: #fff;
+          }
+          
+          #navigation {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center; /* Center-align the navigation items */
+            flex-wrap: wrap; /* Allow items to wrap to a new line */
+          }
+          
+          #navigation li {
+            margin-right: 20px;
+          }
+          
+          #navigation a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            transition: color 0.3s ease;
+          }
+          
+          #navigation a:hover {
+            color: #3498db;
+          }
+            
+
+
+          .scroll-indicator {
+            text-align: center;
+            margin-top: 20px;
+          }
+        
+          .arrow-right {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 15px solid #333;
+            display: inline-block;
+            margin-left: 5px;
+            vertical-align: middle;
+          }
+
+
+
+          #technicalSkills {
+            margin-top: 40px;
+            margin-left: 320px; /* Add left margin */
+            margin-right: 320px; /* Add right margin */
+          }
+          
+          .skills-list {
+            list-style-type: none;
+            padding: 0;
+          }
+          
+          .skills-list li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            text-align: left; /* Align text to the left */
+          }
+
+
+          .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            background-color:red; /* Blue color */
+            color: #fff; /* White text */
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+
+        /* Style the icon */
+        .download-icon {
+            margin-right:auto;
+        }
+
+
+
+
+
+      .research-interests {
+          margin-top: 20px;
+          text-align:center;
+      }
+      
+      .research-interests-heading {
+          font-size: 1.5em;
+          font-weight: bold;
+          margin-top: 20px;
+      }
+      
+      .section-divider {
+          margin: 0 auto;
+          margin-top: 5px;
+          width: 80%;
+          border-top: 2px solid #ddd;
+      }
+      
+      .research-interests-info {
+          text-align: justify;
+          max-width: 600px;
+          margin: 10px auto; /* Center align the content */
+          padding: 15px;
+      }
+      
+      .research-interests-info p {
+          font-size: 20px;
+          line-height: 1.6;
+          margin-bottom: 20px;
+      }
+      
+      .research-interests-info p:last-child {
+          margin-bottom: 0;
+      }
+      
+      /* Media query for small screens */
+      @media (max-width: 600px) {
+          .research-interests-info {
+              padding: 10px; /* Adjust padding for smaller screens */
+          }
+      }
+      
+
+
+
+
+
+
+      .technical-skills {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .technical-skills .section-heading {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    
+    .technical-skills .section-divider {
+        margin: 0 auto;
+        margin-top: 5px;
+        width: 80%;
+        border-top: 2px solid #ddd;
+    }
+    
+    .technical-skills .skills-list {
+        max-width: 600px;
+        margin: 20px auto;
+    }
+    
+    .technical-skills .skills-list ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .technical-skills .skills-list li {
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+    
+    /* Media query for small screens */
+    @media (max-width: 600px) {
+        .technical-skills .skills-list {
+            max-width: 100%;
+            margin: 5px 5px; /* Adjust margin for smaller screens */
+        }
+    
+        .technical-skills .section-divider {
+            width: 80%;
+        }
+    }
+    
+    
+
+          
+
+        </style>
+      </head>
+
 
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <header>
+    <!-- <div class="container">
+      <h1 style="font-size: 60px;">SARTHAK JAIN</h1>
+      <p class="contact-info">
+        <i class="fa fa-phone"></i> +919310136343 &nbsp; | &nbsp;
+        <a href="mailto:sarthakjainssjj@gmail.com"><i class="fa fa-envelope"></i> sarthakjainssjj@gmail.com</a> &nbsp; | &nbsp;
+        <a href="https://www.linkedin.com/in/creatersarthakjain/"><i class="fa fa-linkedin"></i> creatersarthakjain</a> &nbsp; | &nbsp;
+        <a href="https://github.com/SarthakJaindebugger"><i class="fa fa-github"></i> SarthakJaindebugger</a> &nbsp; | &nbsp;
+         <a href="assets/img/CV_SarthakJain.pdf" download="CV_SarthakJain.pdf" target="_blank"><i class="fa fa-globe"></i>CV DOWNLOAD</a>
+        
+        
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
+        <a href="assets/img/CV_SarthakJain.pdf" download="CV_SarthakJain.pdf" class="download-button" target="_blank">
+          CV DOWNLOAD</a>
+      </p>
+    </div> -->
 
-      <div class="profile">
-        <img src="assets/img/sarthakimg.jpeg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Sarthak Jain</a></h1>
-        <div class="social-links mt-3 text-center">
+    <h1 class="special-heading">SARTHAK JAIN</h1>
+    <div class="container">
+      <p class="contact-info">
+        <!-- <i class="fa fa-phone"></i> +919310136343 &nbsp; | &nbsp; -->
+        <a href="tel:+919310136343" class="fa fa-phone" target="_blank"></i> +919310136343 </a>&nbsp; | &nbsp;
+        <a href="mailto:sarthakjainssjj@gmail.com" target="_blank"><i class="fa fa-envelope"></i> Email Me</a> &nbsp; | &nbsp;
+        <a href="https://www.linkedin.com/in/creatersarthakjain/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a> &nbsp; | &nbsp;
+        <a href="https://github.com/SarthakJaindebugger" target="_blank"><i class="fa fa-github"></i> GitHub</a> &nbsp; 
+        
+        <a href="assets/img/CV_SarthakJain.pdf" target="_blank" download="CV_SarthakJain.pdf" class="download-button" target="_blank">
+          CV DOWNLOAD</a><br>
 
-          <a href="https://www.linkedin.com/in/creatersarthakjain/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://github.com/SarthakJaindebugger" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-          <a href="mailto:sarthakjainssjj@gmail.com" target="_blank" class="mail"><i class="bx bxs-envelope"></i></a>
-          <a href="https://www.blogger.com/profile/01860114382752064392" target="_blank" class="blogger"><i class="bx bxl-blogger"></i></a><br>
-      
-          <a href="http://wa.me/+919310136343" target="_blank" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
-          <a href="tel:+918826927173" class="phone-call"><i class="bx bxs-phone"></i></a>
-          <a href="https://instagram.com/sarthakja.in?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="http://wa.me/+919310136343" target="_blank" class="fa fa-github"><i ></i>WhatsApp Me</a>&nbsp; | &nbsp;
+          <a href="https://www.youtube.com/channel/UCJRrUiIxW5Ky5OhmIlWIYKg" target="_blank" class="fa fa-github"><i ></i>YouTube Channel</a>&nbsp; | &nbsp;
+          <a href="https://instagram.com/sarthakja.in" target="_blank" class="fa fa-github"><i ></i>Instagram</a>&nbsp; | &nbsp;
+          <a href="https://www.blogger.com/profile/01860114382752064392" target="_blank" class="fa fa-github"><i ></i>Blogs</a> <br>
+          <a href="https://drive.google.com/drive/folders/1vtm-xYbNHp-0mmcHlGMnh-6-IVzJSrYD?usp=sharing" target="_blank" class="fa fa-github"><i ></i>Self composed music, stories & poems </a> 
           
-        </div>  
-      </div>  
 
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <!-- <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li> 
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>-->
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Find Me</span></a></li>
           
-          <style>
-            .rounded-button {
-                display: inline-block;
-                padding: 10px 20px;
-                background-color: #007bff;
-                color: #fff;
-                border-radius: 10px;
-                text-decoration: none;
-                cursor: pointer;
-            }
-        </style>
-        <li><a href="assets/img/resume.pdf" download="Resume_Sarthak_Jain.pdf" target="_blank" class="rounded-button">Latest CV Download </a></li>
-          
-        </ul>
-      </nav><!-- .nav-menu -->
+
+      </p>
     </div>
-  </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
+
+    <ul id="navigation">
+        <li><a href="#aboutMe">About</a></li>
+        <li><a href="#aboutMe">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#recommendedBy">Recommendations</a></li>
+        <!-- Add more navigation items as needed -->
+      </ul>
+
+
+
+  </header>
+
   
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    
-    
-    <div class="hero-container" data-aos="fade-in">
-      <h1><span class="typed" data-typed-items="Hello, Bonjour, こんにちは, नमस्ते, 你好, Hallo, Hola, مرحبًا,  "></span></h1> <h1> Myself, Sarthak Jain</h1>
-      <p>I'm a <span class="new_typed" data-typed-items="Developer,Programmer,Creator,Problem Solver"></span></p>
+
+  <div id="aboutMe" class="container">
+    <div class="section-heading">About Me</div>
+    <div class="section-divider"></div>
+
+    <div class="about-me-content">
+      <img src="assets/img/1696699500912.jpeg" alt="Your Photo" class="about-me-photo">
+      <div class="about-me-info">
+        <!-- Replace the placeholder text with your actual information -->
+        <p>
+          <p>
+            I'm Sarthak Jain, a Computer Science Engineering student deeply passionate about research and development. I thrive in the world of programming, building intricate code, and connecting with global developers to foster continuous learning. <br><br>I love to build both autonomous and remote control robots and get fascinated by them and their idea in a future real world. I also extended my passion for teaching by creating educational content on YouTube, where I taught advanced physics and mathematics concepts like Calculus, electricity and fields, trigonometry, inverse trigonometry etc.<br><br>Beyond the technical landscape, I've devoted 2.5 years to the discipline of weightlifting(adding more), translated my thoughts into the artistry of poems and stories, and delved into the creative fusion of music and technology. In the realm of leisure, my cinematic preferences gravitate toward the exhilarating narratives of crime and mystery genres, as well as the heartwarming tales of romance.
+            </p>
+        
+      </div>
     </div>
-
-     <script>
-      
-      const typedElements = document.querySelectorAll('.new_typed');
-    
-      typedElements.forEach((element) => {
-        const items = element.getAttribute('data-typed-items').split(',');
-        let currentItemIndex = 0;
-        let currentText = items[currentItemIndex].trim();
-    
-        const type = () => {
-          if (currentText.length > 0) {
-            element.textContent = currentText;
-            currentText = currentText.slice(0, -1);
-            setTimeout(type, 300); 
-            
-          } else {  
-            currentItemIndex = (currentItemIndex + 1) % items.length;
-            currentText = items[currentItemIndex].trim();
-            setTimeout(type, 500); 
-          }
-        };
-        
-
-        setTimeout(() => {
-          type();
-        }, 1000);
-
-    
-        
-      });
-    </script> 
-
-    
-    
-
-
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About Me</h2>
-          <!-- <p>Hi, Myself Sarthak Jain</p> -->
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/sarthakimg.jpeg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Computer Science Engineering Undergrad &amp; ML Enthusiast</h3>
-            
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Name: </strong> <span>Sarthak Jain</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Pronoun(s):</strong> <span>he/him</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>18 November 2002</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91-8826927173</span></li>
-                  
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New Delhi, India</span></li>
-                  <!-- <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>20</span></li> -->
-                  <li><i class="bi bi-chevron-right"></i> <strong>Current Degree:</strong> <span>Bachelors of Technology in Computer Science Engineering</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>sarthakjainssjj@gmail.com</span></li>
-                  
-                </ul>
-              </div>
-            </div>
-            <!-- <p>
-              I'm Sarthak Jain
-            </p> -->
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Facts Section ======= -->
-    <!-- <section id="facts" class="facts">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Facts</h2>
-           <p>I'm Sarthak Jain</p> 
-        </div>
-
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="count-box">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>End Facts Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>My major technical skills</h2>
-          
-        </div>
-
-        <!-- <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">Python <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">OpenCV <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Tensorflow <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Amazon AWS <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">MySQL/NoSQL <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Java <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">HTML <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">CSS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">PHP <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Flutter/Dart <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-
-            <div class="progress">
-              <span class="skill">GitHub/Git <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-
-
-            <div class="progress">
-              <span class="skill">WordPress/CMS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Photoshop <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div> 
-
-        </div> -->
-        
-
-        <!-- <style>
-          /* CSS for the image */
-          .rounded-image {
-              width: 200px; /* Increase the width */
-              height: 200px; /* Increase the height */
-              border-radius: 15%; /* Create a rounded border */
-              box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add a shadow */
-          }
-      </style> -->
-
-
-      <style>
-        /* CSS for the image container */
-        .rounded-image {
-            width: 200px; /* Set the width for the container */
-            height: 200px;
-            border-radius: 15%; /* Create a rounded border */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add a shadow */
-            overflow: hidden; /* Hide any overflowing content */
-            display: inline-block; /* Display the containers inline */
-            margin-right: 10px; /* Add some spacing between the containers */
-            align-items: center;
-        }
-    </style>
-
-
-    <div class="rounded-image">
-      <img src="assets/img/skillIcons/c.png" width="200" height="200">
   </div>
 
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/pythonlogo.png"  width="200" height="200" >
+
+
+
+  <!-- <div id="aboutMe" class="container">
+    <div class="section-heading">Research Interests</div>
+    <div class="section-divider"></div>
+
+    
+      <div class="about-me-info">
+        <p>
+          1)Speech recognition and Object detection<br>
+          2)LLMs<br>
+          3)Computer vision<br>
+          4)Robotics
+        </p>
       </div>
+    
+  </div> -->
 
 
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/java.jpeg" width="190" height="180"  >
+  <div class="research-interests">
+    <div class="research-interests-heading">Research Interests</div>
+    <div class="section-divider"></div>
+
+    <div class="research-interests-info">
+        <!-- Replace the placeholder text with your actual information -->
+        <p>
+            1) Speech recognition and object detection<br>
+            2) LLMs<br>
+            3) Computer vision<br>
+            4) Robotics<br>
+            and many more areas of Machine learning, Deep Learning and Natural Language Processing...
+
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- END OF SECTION.......................................................... -->
+
+<div class="section-heading">Featured Projects</div>
+<div class="section-divider"></div>
+<section id="projects" class="container">
+
+    <div class="project-card" onclick="showDescription('project1')">
+      <img src="assets/img/logo1.jpeg" alt="Project 1">
+    </div>
+
+    <div class="project-card" onclick="showDescription('project2')">
+      <img src="assets/img/1696699500912.webp" alt="Project 2">
+    </div>
+
+    <div class="project-card" onclick="showDescription('project3')">
+      <img src="assets/img/internet.jpeg" alt="Project 3">
+    </div>
+
+    <div class="project-card" onclick="showDescription('project4')">
+      <img src="assets/img/complaint-great-design-any-purposes-flat-vector-illustration-246932518.webp" alt="Project 4">
+    </div>
+
+    <div class="project-card" onclick="showDescription('project5')">
+      <img src="assets/img/istockphoto-1326769162-612x612.jpeg" alt="Project 5">
+    </div>
+
+  </section>
+
+  <div class="scroll-indicator">
+    <span>Scroll to view more projects</span>
+    <div class="arrow-right"></div>
+  </div>
+
+
+ <!-- END OF SECTION.......................................................... -->
+
+
+
+<div class="section-heading">Experience</div>
+<div class="section-divider"></div>    
+<section id="experience" class="container">
+        <div class="experience-line"></div>
+    
+        <!-- Experience entries -->
+        <div class="experience-card left">
+            <div class="experience-title">Indraprastha Institute of Information Technology, Delhi</div>
+            <div class="experience-subtitle">New Delhi, India</div>
+            <div class="experience-duration">Research Assistant | Nov 2023 (Present)</div>
+            <div class="experience-description">
+              Currently engrossed in emotion classification using diverse speech datasets across multiple languages. Implementing a Fine Tuning approach and harnessing various neural networks for speech recognition. This strategic approach is designed to alleviate Catastrophic Forgetting.
+            </div>
         </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/tensorflow.jpeg"  width="210" height="210" >
-      </div>
-
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/pytorch.png"  width="190" height="140">
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/dartflutter.png"  width="200" height="160" >
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/github.png"  width="210" height="200">
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/opencv.png"  width="170" height="190" >
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/aws.png"  width="170" height="160" >
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/mysql.jpeg"  width="200" height="200" >
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/nodejs.jpeg"  width="190" height="200" >
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/bootstrap.png"  width="195" height="190" >
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/react.png"  width="190" height="190" >
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/csshtml.png"  width="210" height="160" >
-    </div>
-  
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/ml.jpeg"  width="200" height="200">
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/nlp.webp"  width="220" height="220" >
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/ocr.jpeg"  width="200" height="200" >
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/arduino.png"   width="160" height="150" >
-    </div>
-
-      <div class="rounded-image">
-      <img src="assets/img/skillIcons/raspberry.jpeg"  width="250" height="200">
-    </div>
-
-
-
-
-
-      </div>
-    </section><!-- End Skills Section -->
-
-
-
-    <!-- ======= Resume Section ======= -->
-
-
-
-     <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2></div>
-          
     
-
-      <img src="assets/img/skillIcons/resume1.png" width="100%" height="auto">
-      <img src="assets/img/skillIcons/resume2.png" width="100%" height="auto">
-      
-    </div>
-      </section>
-
-
-
-
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Locate</h2>
-                  </div>
-
-                  <iframe
-        width="100%"
-        height="500"
-        frameborder="0"
-        style="border:0"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.478976212923!2d77.1171828!3d28.5624047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1d68dcb25c23%3A0x4a1b89a8fb994c1e!2sDelhi%20Airport!5e0!3m2!1sen!2sin!4v1630897933063!5m2!1sen!2sin"
-        allowfullscreen>
-    </iframe>
-        
-
-      </div>
-
-      <br><br>
-      
-      <div class="my-div">
-        <h2><p class="centered-text">Thanks for visiting!</p></h2>
-        <h5><p class="centered-text">If you had liked my projects and ideas, feel free to share your views and suggestions.</p></h5>
-        <p class="centered-text"><br>
-          
-          <br>@2023 Sarthak Jain</p>
-      </div>
-      
-      
-      
-    </section><!-- End Contact Section -->
+        <div class="experience-card left">
+            <div class="experience-title">Indian Institute of Technology, Ropar</div>
+            <div class="experience-subtitle">Ropar, Punjab, India</div>
+            <div class="experience-duration">Research Assistant | Sep 2023 - Nov 2023</div>
+            <div class="experience-description">
+              Engineered BLE Cow Health Monitoring with MATLAB, Python for stats, and data transmission via gateway/GSM. Differentiated ML predictions from mathematical analysis.
+            </div>
+        </div>
     
+        <div class="experience-card left">
+            <div class="experience-title">Indian Institute of Technology, Ropar(iHub-AWaDH)</div>
+            <div class="experience-subtitle">Ropar, Punjab, India</div>
+            <div class="experience-duration">Software Development Intern | June 2023 (Present)</div>
+            <div class="experience-description">
+              Enhancing ML activity predictions in Flutter and React.JS for Android, web, and website development. Streamlining CI/CD on GitHub, integrating features, and fetching data from AWS DynamoDB via APIs.
+            </div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">Hello World Technologies</div>
+            <div class="experience-subtitle">Bangalore (Remote)</div>
+            <div class="experience-duration">Software Development Intern | June 2023 - Aug 2023</div>
+            <div class="experience-description">
+              Contributed to full-stack web development with React.js, Node.js, and MySQL. Integrated APIs, established a robust CI/CD pipeline on GitHub, and coordinated project management with JIRA.
+            </div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">Saint Louis University, USA</div>
+            <div class="experience-subtitle">USA (Remote)</div>
+            <div class="experience-duration">Data Visualization Intern | May 2023 - June 2023</div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">Saint Louis University, USA</div>
+            <div class="experience-subtitle">USA (Remote)</div>
+            <div class="experience-duration">Project Management Intern | May 2023 - June 2023</div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">NbliK</div>
+            <div class="experience-subtitle">New Delhi (Remote)</div>
+            <div class="experience-duration">Community Manager Intern | Sept 2022 - Dec 2022</div>
+        </div>
+    
+        <div class="experience-card left">
+            <div class="experience-title">Hamari Pahachan NGO (HPNGO)</div>
+            <div class="experience-subtitle">New Delhi (Remote)</div>
+            <div class="experience-duration">Digital Marketing Intern | Nov 2022 - Dec 2022</div>
+        </div>
+    
+</section>
+<!-- END OF SECTION.......................................................... -->
 
-  </main><!-- End #main -->
+<div class="technical-skills">
+  <div class="section-heading">Technical Skills</div>
+  <div class="section-divider"></div>
 
- 
+  <div class="skills-list">
+      <ul>
+          <li><strong>Programming Languages:</strong> C/C++, Python, Java, Dart, Matlab</li>
+          <li><strong>Web Technologies:</strong> HTML, CSS, Bootstrap, NodeJS, React, Flutter, Wordpress</li>
+          <li><strong>Databases and Cloud:</strong> MySQL, AWS</li>
+          <li><strong>Machine Learning and Deep Learning:</strong> OpenCV, TensorFlow, OCR, NLP(Natural Language Processing), PyTorch, Keras</li>
+          <li><strong>Version Control and Collaboration:</strong> Github, Git</li>
+          <li><strong>Hardware and microcontrollers:</strong> Arduino, Raspberry Pi</li>
+      </ul>
+  </div>
+</div>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  
-   
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+
+<!-- END OF SECTION.......................................................... -->
+<div class="section-heading">Recommended By</div>
+  <div class="section-divider"></div>
+
+  <section id="recommendedBy" class="container">
+    
+    <a href="https://drive.google.com/file/d/193Pi_BwY6RTejBxQ_Id28g1C2XeKkMJs/view?usp=sharing" target="_blank" class="recommendation-card">
+      <div class="recommendation-content">
+        <img src="assets/img/sumankumar1.jpg" alt="Dr. Suman Kumar" class="recommendation-image">
+        <div class="recommendation-name">Dr. Suman Kumar</div>
+      </div>
+    </a>
+
+
+    <a href="https://drive.google.com/file/d/1S2uEkdMHf4ri7AFRJyZdZXgiaMxkh5x7/view?usp=sharing" target="_blank" class="recommendation-card">
+        <div class="recommendation-content">
+          <img src="assets/img/ismail.ecaaef75.png" alt="Dr. Suman Kumar" class="recommendation-image">
+          <div class="recommendation-name">Mr.Ismail Khan</div>
+        </div>
+      </a>
+
+
+      <a href="https://drive.google.com/file/d/1vfMi77BB5-h0s6XjMLVmrjT4KD0Jsj_2/view?usp=sharing" target="_blank" class="recommendation-card">
+        <div class="recommendation-content">
+          <img src="assets/img/1694939384473.jpeg" alt="Dr. Suman Kumar" class="recommendation-image">
+          <div class="recommendation-name">Dr.Mohammad Aslam</div>
+        </div>
+      </a>
+
+    
+  </section>
+
+<!-- END OF SECTION.......................................................... -->
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="projectDescription" class="project-description">
+    <span class="close-btn" onclick="hideDescription()">&times;</span>
+    <div id="projectDescriptionContent"></div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Sarthak Jain. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function showDescription(project) {
+      const projectDescription = document.getElementById('projectDescription');
+      const projectDescriptionContent = document.getElementById('projectDescriptionContent');
+
+      // Load project description dynamically
+      fetch(`assets/${project}.html`)
+        .then(response => response.text())
+        .then(data => {
+          projectDescriptionContent.innerHTML = data;
+          projectDescription.style.display = 'block';
+        });
+    }
+
+    function hideDescription() {
+      const projectDescription = document.getElementById('projectDescription');
+      projectDescription.style.display = 'none';
+    }
+  </script>
 
 </body>
-
 </html>

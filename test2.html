@@ -11,11 +11,39 @@
                  /* Adjust the padding-top based on your navigation bar height */
               }
           
-          .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-          }
+              .container {
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 20px;
+              }
+          
+              .container h1 {
+                font-size: 24px;
+                font-weight: bold;
+              }
+          
+              .special-heading {
+                font-size: 64px;
+                font-weight: bold;
+                color: black;
+              }
+          
+              .container p.contact-info {
+                font-size: 18px;
+                font-weight: bold;
+              }
+          
+              /* Style hyperlinks */
+              .container a {
+                text-decoration: none; /* Remove underline */
+                color:black; /* Set default color to yellow */
+                transition: color 0.3s ease; /* Add smooth transition on color change */
+              }
+          
+              /* Change hyperlink color on hover */
+              .container a:hover {
+                color:cornflowerblue; /* Change color on hover (e.g., orange) */
+              }
       
           header {
             background-color: lightblue;
@@ -236,8 +264,8 @@
           }
       
           .about-me-photo {
-            width: 250px;
-            height: 250px;
+            width: 400px;
+            height: 400px;
             border-radius: 1%;
             margin-right: 20px;
           }
@@ -335,6 +363,107 @@
         .download-icon {
             margin-right:auto;
         }
+
+
+
+
+
+      .research-interests {
+          margin-top: 20px;
+          text-align:center;
+      }
+      
+      .research-interests-heading {
+          font-size: 1.5em;
+          font-weight: bold;
+          margin-top: 20px;
+      }
+      
+      .section-divider {
+          margin: 0 auto;
+          margin-top: 5px;
+          width: 80%;
+          border-top: 2px solid #ddd;
+      }
+      
+      .research-interests-info {
+          text-align: justify;
+          max-width: 600px;
+          margin: 10px auto; /* Center align the content */
+          padding: 15px;
+      }
+      
+      .research-interests-info p {
+          font-size: 20px;
+          line-height: 1.6;
+          margin-bottom: 20px;
+      }
+      
+      .research-interests-info p:last-child {
+          margin-bottom: 0;
+      }
+      
+      /* Media query for small screens */
+      @media (max-width: 600px) {
+          .research-interests-info {
+              padding: 10px; /* Adjust padding for smaller screens */
+          }
+      }
+      
+
+
+
+
+
+
+      .technical-skills {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .technical-skills .section-heading {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    
+    .technical-skills .section-divider {
+        margin: 0 auto;
+        margin-top: 5px;
+        width: 80%;
+        border-top: 2px solid #ddd;
+    }
+    
+    .technical-skills .skills-list {
+        max-width: 600px;
+        margin: 20px auto;
+    }
+    
+    .technical-skills .skills-list ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .technical-skills .skills-list li {
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+    
+    /* Media query for small screens */
+    @media (max-width: 600px) {
+        .technical-skills .skills-list {
+            max-width: 100%;
+            margin: 5px 5px; /* Adjust margin for smaller screens */
+        }
+    
+        .technical-skills .section-divider {
+            width: 80%;
+        }
+    }
+    
+    
+
           
 
         </style>
@@ -344,21 +473,46 @@
 <body>
 
   <header>
-    <div class="container">
+    <!-- <div class="container">
       <h1 style="font-size: 60px;">SARTHAK JAIN</h1>
       <p class="contact-info">
         <i class="fa fa-phone"></i> +919310136343 &nbsp; | &nbsp;
         <a href="mailto:sarthakjainssjj@gmail.com"><i class="fa fa-envelope"></i> sarthakjainssjj@gmail.com</a> &nbsp; | &nbsp;
         <a href="https://www.linkedin.com/in/creatersarthakjain/"><i class="fa fa-linkedin"></i> creatersarthakjain</a> &nbsp; | &nbsp;
         <a href="https://github.com/SarthakJaindebugger"><i class="fa fa-github"></i> SarthakJaindebugger</a> &nbsp; | &nbsp;
-        <!-- <a href="assets/img/CV_SarthakJain.pdf" download="CV_SarthakJain.pdf" target="_blank"><i class="fa fa-globe"></i>CV DOWNLOAD</a>
+         <a href="assets/img/CV_SarthakJain.pdf" download="CV_SarthakJain.pdf" target="_blank"><i class="fa fa-globe"></i>CV DOWNLOAD</a>
         
-        -->
+        
 
         <a href="assets/img/CV_SarthakJain.pdf" download="CV_SarthakJain.pdf" class="download-button" target="_blank">
           CV DOWNLOAD</a>
       </p>
+    </div> -->
+
+    <h1 class="special-heading">SARTHAK JAIN</h1>
+    <div class="container">
+      <p class="contact-info">
+        <!-- <i class="fa fa-phone"></i> +919310136343 &nbsp; | &nbsp; -->
+        <a href="tel:+919310136343" class="fa fa-phone" target="_blank"></i> +919310136343 </a>&nbsp; | &nbsp;
+        <a href="mailto:sarthakjainssjj@gmail.com" target="_blank"><i class="fa fa-envelope"></i> Email Me</a> &nbsp; | &nbsp;
+        <a href="https://www.linkedin.com/in/creatersarthakjain/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a> &nbsp; | &nbsp;
+        <a href="https://github.com/SarthakJaindebugger" target="_blank"><i class="fa fa-github"></i> GitHub</a> &nbsp; 
+        
+        <a href="assets/img/CV_SarthakJain.pdf" target="_blank" download="CV_SarthakJain.pdf" class="download-button" target="_blank">
+          CV DOWNLOAD</a><br>
+
+          <a href="http://wa.me/+919310136343" target="_blank" class="fa fa-github"><i ></i>WhatsApp Me</a>&nbsp; | &nbsp;
+          <a href="https://www.youtube.com/channel/UCJRrUiIxW5Ky5OhmIlWIYKg" target="_blank" class="fa fa-github"><i ></i>YouTube Channel</a>&nbsp; | &nbsp;
+          <a href="https://instagram.com/sarthakja.in" target="_blank" class="fa fa-github"><i ></i>Instagram</a>&nbsp; | &nbsp;
+          <a href="https://www.blogger.com/profile/01860114382752064392" target="_blank" class="fa fa-github"><i ></i>Blogs</a> <br>
+          <a href="https://drive.google.com/drive/folders/1vtm-xYbNHp-0mmcHlGMnh-6-IVzJSrYD?usp=sharing" target="_blank" class="fa fa-github"><i ></i>Self composed music, stories & poems </a> 
+          
+
+          
+
+      </p>
     </div>
+
 
     <ul id="navigation">
         <li><a href="#aboutMe">About</a></li>
@@ -384,12 +538,10 @@
       <div class="about-me-info">
         <!-- Replace the placeholder text with your actual information -->
         <p>
-          Hello! I'm Sarthak Jain, a passionate software developer currently pursuing my BTech in Computer Science Engineering.
-        </p>
-        <p>
-          I love exploring new technologies and building innovative solutions. My journey includes diverse experiences in software development, machine learning, and more.
-        </p>
-        <!-- Add more information about yourself as needed -->
+          <p>
+            I'm Sarthak Jain, a Computer Science Engineering student deeply passionate about research and development. I thrive in the world of programming, building intricate code, and connecting with global developers to foster continuous learning. <br><br>I love to build both autonomous and remote control robots and get fascinated by them and their idea in a future real world. I also extended my passion for teaching by creating educational content on YouTube, where I taught advanced physics and mathematics concepts like Calculus, electricity and fields, trigonometry, inverse trigonometry etc.<br><br>Beyond the technical landscape, I've devoted 2.5 years to the discipline of weightlifting(adding more), translated my thoughts into the artistry of poems and stories, and delved into the creative fusion of music and technology. In the realm of leisure, my cinematic preferences gravitate toward the exhilarating narratives of crime and mystery genres, as well as the heartwarming tales of romance.
+            </p>
+        
       </div>
     </div>
   </div>
@@ -397,23 +549,54 @@
 
 
 
-  <div id="aboutMe" class="container">
-    <div class="section-heading">Reserach Interests</div>
+  <!-- <div id="aboutMe" class="container">
+    <div class="section-heading">Research Interests</div>
     <div class="section-divider"></div>
 
     
       <div class="about-me-info">
-        <!-- Replace the placeholder text with your actual information -->
         <p>
-          Hello! I'm Sarthak Jain, a passionate software developer currently pursuing my BTech in Computer Science Engineering.
+          1)Speech recognition and Object detection<br>
+          2)LLMs<br>
+          3)Computer vision<br>
+          4)Robotics
         </p>
-        <p>
-          I love exploring new technologies and building innovative solutions. My journey includes diverse experiences in software development, machine learning, and more.
-        </p>
-        <!-- Add more information about yourself as needed -->
       </div>
     
-  </div>
+  </div> -->
+
+
+  <div class="research-interests">
+    <div class="research-interests-heading">Research Interests</div>
+    <div class="section-divider"></div>
+
+    <div class="research-interests-info">
+        <!-- Replace the placeholder text with your actual information -->
+        <p>
+            1) Speech recognition and object detection<br>
+            2) LLMs<br>
+            3) Computer vision<br>
+            4) Robotics<br>
+            and many more areas of Machine learning, Deep Learning and Natural Language Processing...
+
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -494,7 +677,7 @@
             <div class="experience-subtitle">Bangalore (Remote)</div>
             <div class="experience-duration">Software Development Intern | June 2023 - Aug 2023</div>
             <div class="experience-description">
-              Contributed to full-stack web development with React.js, Node.js, and MySQL. Integrated APIs, established a robust CI/CD pipeline on GitHub, and coordinated project management with JIRA for efficient workflow.
+              Contributed to full-stack web development with React.js, Node.js, and MySQL. Integrated APIs, established a robust CI/CD pipeline on GitHub, and coordinated project management with JIRA.
             </div>
         </div>
     
@@ -525,23 +708,21 @@
 </section>
 <!-- END OF SECTION.......................................................... -->
 
+<div class="technical-skills">
+  <div class="section-heading">Technical Skills</div>
+  <div class="section-divider"></div>
 
-
-<section id="technicalSkills">
-    <div class="section-heading">Technical Skills</div>
-    <div class="section-divider"></div>
-    <ul class="skills-list">
-      <li><strong>Programming Languages:</strong>C/C++, Python, Java, Dart, Matlab</li>
-      <li><strong>Web Technologies:</strong> HTML, CSS, Bootstrap, NodeJS, React, Flutter, Wordpress</li>
-      <li><strong>Databases and Cloud:</strong> MySQL, AWS</li>
-      <li><strong>Machine Learning and Deep Learning:</strong> OpenCV, TensorFlow, OCR, NLP(Natural Language Processing), PyTorch,Keras</li>
-      <li><strong>Version Control and Collaboration:</strong> Github, Git</li>
-      <li><strong>Hardware and microcontrollers:</strong> Arduino, Raspberry Pi</li>
-    </ul>
-  </section>
-
-
-
+  <div class="skills-list">
+      <ul>
+          <li><strong>Programming Languages:</strong> C/C++, Python, Java, Dart, Matlab</li>
+          <li><strong>Web Technologies:</strong> HTML, CSS, Bootstrap, NodeJS, React, Flutter, Wordpress</li>
+          <li><strong>Databases and Cloud:</strong> MySQL, AWS</li>
+          <li><strong>Machine Learning and Deep Learning:</strong> OpenCV, TensorFlow, OCR, NLP(Natural Language Processing), PyTorch, Keras</li>
+          <li><strong>Version Control and Collaboration:</strong> Github, Git</li>
+          <li><strong>Hardware and microcontrollers:</strong> Arduino, Raspberry Pi</li>
+      </ul>
+  </div>
+</div>
 
 
 
